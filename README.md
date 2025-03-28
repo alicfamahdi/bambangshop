@@ -121,5 +121,15 @@ Recommendation: Continue using `DashMap` because:
 - Aligns with Rust's ownership and concurrency principles
 
 #### Reflection Publisher-2
+Here are the questions for this reflection:
+1. In the Model-View Controller (MVC) compound pattern, there is no “Service” and “Repository”. Model in MVC covers both data storage and business logic. Explain based on your understanding of design principles, why we need to separate “Service” and “Repository” from a Model?
+
+
+
+2. What happens if we only use the Model? Explain your imagination on how the interactions between each model (Program, Subscriber, Notification) affect the code complexity for each model?
+
+
+3. Have you explored more about Postman? Tell us how this tool helps you to test your current work. You might want to also list which features in Postman you are interested in or feel like it is helpful to help your Group Project or any of your future software engineering projects.
+
 
 #### Reflection Publisher-3
