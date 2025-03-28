@@ -14,9 +14,6 @@ pub struct Subscriber {
     pub name: String,
 }
 
-
-// 1. Implement update method in Subscriber model in src/model/subscriber.rs. This method
-// will send a notification to a Subscriber based on the provided URL, using HTTP POST request. We use tokio library to make async functions usable as sync functions, and the reqwest external library to make HTTP POST requests.
 impl Subscriber {
     #[tokio::main]
     pub async fn update(&self, payload: Notification) {
