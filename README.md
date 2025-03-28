@@ -124,12 +124,85 @@ Recommendation: Continue using `DashMap` because:
 Here are the questions for this reflection:
 1. In the Model-View Controller (MVC) compound pattern, there is no “Service” and “Repository”. Model in MVC covers both data storage and business logic. Explain based on your understanding of design principles, why we need to separate “Service” and “Repository” from a Model?
 
+We need to separate Service and Repository from Model because of the S in SOLID, which is Single Responsibility Principle.
 
+With Service and Repository, the responsibilities are clear:
+- Model: Data representation
+- Repository: Data persistence
+- Service: Business logic and coordination
+
+Separating Service and Repository also makes the code more maintainable as each class is small and focused, as well as easier to understand and modify. 
 
 2. What happens if we only use the Model? Explain your imagination on how the interactions between each model (Program, Subscriber, Notification) affect the code complexity for each model?
 
+Potential complications of using only Model:
+- Tight coupling: Models become interdependent
+- Reduced flexibility: Difficult to modify individual components
+- Complex error handling: Intricate error management
+- Performance overhead: Each model carries unnecessary logic
+- Violation of Single Responsibility Principle
+
+Interaction Complexities:
+- Increased interdependencies
+- Difficult to trace logic flow
+- Harder to maintain and extend
+- Reduced code readability
+- Complex state management
 
 3. Have you explored more about Postman? Tell us how this tool helps you to test your current work. You might want to also list which features in Postman you are interested in or feel like it is helpful to help your Group Project or any of your future software engineering projects.
 
+So far I have only used Postman to test the HTTP methods in this project. It is quite convenient that it allows us to send different types of HTTP requests and have format variations for the request body. I have not tried much other features. However, I have heard it has helpful features for group projects, such as mock server creation, automated testing, and automatic API documentation.
 
 #### Reflection Publisher-3
+Here are the questions for this reflection:
+1. Observer Pattern has two variations: Push model (publisher pushes data to subscribers) and Pull model (subscribers pull data from publisher). In this tutorial case, which variation of Observer Pattern that we use?
+
+In the current implementation, we're using the Push Model of the Observer Pattern.
+Key Characteristics of Push Model:
+- The publisher (BambangShop) actively sends notifications to subscribers
+- Notification details are directly transmitted to subscribers
+- Subscribers receive complete information in the update method
+- Proactive approach where the publisher controls information flow
+
+2. What are the advantages and disadvantages of using the other variation of Observer Pattern for this tutorial case? (example: if you answer Q1 with Push, then imagine if we used Pull)
+
+Pull Model Characteristics:
+- Subscribers request information from the publisher
+- Publisher provides minimal notification
+- Subscribers responsible for fetching complete details
+
+Advantages of Pull Model:
+- Reduced initial data transmission
+- Lower memory overhead
+- More control for subscribers
+- Flexibility in data retrieval
+- Potential bandwidth savings
+
+Disadvantages of Pull Model:
+- Increased complexity
+- More network requests
+- Higher latency
+- More responsibility on subscriber
+- Potential synchronization challenges
+- Less efficient data transfer
+- Increased system load
+
+3. Explain what will happen to the program if we decide to not use multi-threading in the notification process.
+
+Implications of Non-Threaded Approach:
+
+Performance Bottlenecks
+- Notifications processed sequentially
+- Slow subscribers block entire notification chain
+- Increased response time
+
+
+Scalability Limitations
+- Cannot handle many subscribers efficiently
+- Single-threaded execution limits concurrent processing
+
+
+Reliability Concerns
+- Failure in one notification breaks entire process
+- No parallel error handling
+- Increased risk of system unresponsiveness
